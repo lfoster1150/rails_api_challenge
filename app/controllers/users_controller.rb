@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
 
     if user.save
-      render json: user.to_json(only: [:id, :first_name, :last_name, :email])
+      render status: 201, json: user.to_json(only: [:id, :first_name, :last_name, :email])
     else
       render :new, status: :unprocessable_entity
     end
